@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FeedEk/3.2.0/js/FeedEk.js"></script>
+<script>
+$(document).ready(function() {
+  var feeds = [
+    {title: 'NYTIMES', url: 'https://raw.githubusercontent.com/DevOptTeam/demo-feed/main/rss-demo1.xml',logo:'https://www.gerflor.com.au/static/apps/gerflor_standard/img/favicon.ico'},
+    {title: 'PurdueU', url: 'https://raw.githubusercontent.com/DevOptTeam/demo-feed/main/rss-demo2.xml',logo:'https://dev-to.s3.us-east-2.amazonaws.com/favicon.ico'},
+    {title: 'indiatoday', url: 'https://raw.githubusercontent.com/DevOptTeam/demo-feed/main/rss-demo3.xml',logo:'https://www.w3schools.com/favicon.ico'},
+    {title: 'arstechnica', url: 'https://raw.githubusercontent.com/DevOptTeam/demo-feed/main/rss-demo4.xml',logo:'https://bufanz.com/favicon.ico'} 
+  ];
+  
+for (var i = 0; i < feeds.length; i++) {
+  $('#rss-feeds').append('<div class="feed"><h2><img src=" ' + feeds[i].logo + ' "> ' + feeds[i].title + '</h2><div id="feed-' + i + '"></div></div>');
+  $('#feed-' + i).FeedEk({
+    FeedUrl: feeds[i].url,
+    MaxCount: 10,
+    ShowDesc: false,
+    ShowPubDate: false
+    });
+  }
+});
+</script>
+    	</head>
+    	
+    	<body>
+<div id="rss-feeds"></div>
+    	    
+    	</body>
+    	</html>
